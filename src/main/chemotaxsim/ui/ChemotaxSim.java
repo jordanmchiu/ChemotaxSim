@@ -6,16 +6,17 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ChemotaxSim extends JFrame {
-    private static final int INTERVAL = 20;
-    private CSArea csArea;
-    private SimPanel sp;
 
     public ChemotaxSim() {
-        // stub
-    }
-
-    private void addTimer() {
-        // stub
+        super("ChemotaxSim");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        CSArea csArea = new CSArea();
+        SimPanel sp = new SimPanel(csArea);
+        add(sp);
+        pack();
+        centreOnScreen();
+        setVisible(true);
     }
 
     /**
