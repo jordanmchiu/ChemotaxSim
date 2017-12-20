@@ -53,7 +53,7 @@ public class CSArea {
     }
 
     public List<Bacterium> getBacteria() {
-        return null; // stub
+        return this.bacteria;
     }
 
     public void moveBacteria() {
