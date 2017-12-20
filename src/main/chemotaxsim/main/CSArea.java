@@ -67,7 +67,7 @@ public class CSArea {
      * @return    nutrient conc at x-pos based on width and min/max nutrient concentrations
      */
     public static int getNutrientAtWidth(int x) {
-        return (x / ((MIN_NUTRIENT - MAX_NUTRIENT) / WIDTH) + MIN_NUTRIENT);
+        return ((x * ((MAX_NUTRIENT - MIN_NUTRIENT) / WIDTH)) + MIN_NUTRIENT);
     }
 
 }

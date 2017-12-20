@@ -14,11 +14,14 @@ public class SimPanel extends JPanel {
 
     private CSArea area;
 
-    public SimPanel(CSArea area) {
+    public SimPanel() {
         setPreferredSize(new Dimension(CSArea.WIDTH, CSArea.HEIGHT));
         setBackground(Color.WHITE); // change this to a gradient if possible
-        this.area = area;
+        this.area = new CSArea();
         addTimer();
+        setFocusable(true);
+        addKeyListener(new KeyHandler());
+        addMouseListener(new MouseHandler());
     }
 
     /**
@@ -55,17 +58,17 @@ public class SimPanel extends JPanel {
         }
     }
 
-    public void paintComponent(Graphics g) {
+    @Override
+    protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-
         drawSim(g);
     }
 
-    public void drawSim(Graphics g) {
+    private void drawSim(Graphics g) {
         drawBacteria(g);
     }
 
-    public void drawBacteria(Graphics g) {
+    private void drawBacteria(Graphics g) {
         for (Bacterium next : area.getBacteria()) {
             drawBacterium(g, next);
         }
@@ -76,7 +79,7 @@ public class SimPanel extends JPanel {
      * @param g    graphics object to work with
      * @param b    bacterium to be drawn
      */
-    public void drawBacterium(Graphics g, Bacterium b) {
+    private void drawBacterium(Graphics g, Bacterium b) {
         Color savedCol = g.getColor();
         g.setColor(Bacterium.BACTERIUM_COLOR);
         g.fillOval(b.getX(), b.getY(), Bacterium.BACTERIUM_WIDTH, Bacterium.BACTERIUM_LENGTH);

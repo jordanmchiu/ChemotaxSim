@@ -1,7 +1,5 @@
 package main.chemotaxsim.ui;
 
-import main.chemotaxsim.main.CSArea;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -11,8 +9,7 @@ public class ChemotaxSim extends JFrame {
         super("ChemotaxSim");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setUndecorated(true);
-        CSArea csArea = new CSArea();
-        SimPanel sp = new SimPanel(csArea);
+        SimPanel sp = new SimPanel();
         add(sp);
         pack();
         centreOnScreen();
