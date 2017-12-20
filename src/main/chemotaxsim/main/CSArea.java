@@ -3,7 +3,6 @@ package main.chemotaxsim.main;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class CSArea {
     public static final int WIDTH = 800;
@@ -11,7 +10,6 @@ public class CSArea {
     public static final int MAX_BACTERIA = 10;
     public static final int MIN_NUTRIENT = 10;
     public static final int MAX_NUTRIENT = 90;
-    public static final Random RND = new Random();
 
     private List<Bacterium> bacteria;
 
@@ -59,15 +57,17 @@ public class CSArea {
     }
 
     public void moveBacteria() {
-        // stub
+        for (Bacterium b : this.bacteria)
+            b.move();
     }
 
-    private void moveBacterium() {
-
-    }
-
-    public int getNutrientAtWidth(int x) {
-        return 0;
+    /**
+     * Get nutrient conc at given x-pos
+     * @param x   given x-pos
+     * @return    nutrient conc at x-pos based on width and min/max nutrient concentrations
+     */
+    public static int getNutrientAtWidth(int x) {
+        return (x / ((MIN_NUTRIENT - MAX_NUTRIENT) / WIDTH) + MIN_NUTRIENT);
     }
 
 }

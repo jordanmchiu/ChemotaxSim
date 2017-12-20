@@ -42,6 +42,10 @@ public class SimPanel extends JPanel {
         }
     }
 
+    /**
+     * A mouse handler to respond to mouse events
+     * Adds bacterium at given position when mouse is clicked
+     */
     private class MouseHandler extends MouseAdapter {
         @Override
         public void mouseClicked(MouseEvent e) {
@@ -66,14 +70,7 @@ public class SimPanel extends JPanel {
     }
 
     public void update() {
-        // stub
-    }
-
-    public void simPaused() {
-        // stub
-    }
-
-    public void simRestart() {
-        // stub
+        area.update();
+        repaint();
     }
 }
