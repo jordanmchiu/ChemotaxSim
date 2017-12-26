@@ -14,6 +14,9 @@ public class SimPanel extends JPanel {
 
     private CSArea area;
 
+    /**
+     * Construct a new SimPanel
+     */
     public SimPanel() {
         setPreferredSize(new Dimension(CSArea.WIDTH, CSArea.HEIGHT));
         setBackground(Color.WHITE); // change this to a gradient if possible
@@ -58,16 +61,28 @@ public class SimPanel extends JPanel {
         }
     }
 
+    /**
+     * Paints everything
+     * @param g   Graphics object to use
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         drawSim(g);
     }
 
+    /**
+     * Draws simulator onto Graphics object
+     * @param g    Graphics object to use
+     */
     private void drawSim(Graphics g) {
         drawBacteria(g);
     }
 
+    /**
+     * Draws all bacteria onto Graphics object
+     * @param g    Graphics object to use
+     */
     private void drawBacteria(Graphics g) {
         for (Bacterium next : area.getBacteria()) {
             drawBacterium(g, next);
@@ -76,8 +91,8 @@ public class SimPanel extends JPanel {
 
     /**
      * Draw an individual bacterium and rotate it according to its current angle of rotation
-     * @param g    graphics object to work with
-     * @param b    bacterium to be drawn
+     * @param g    Graphics object to use
+     * @param b    Bacterium to be drawn
      */
     private void drawBacterium(Graphics g, Bacterium b) {
         Color savedCol = g.getColor();
@@ -92,6 +107,9 @@ public class SimPanel extends JPanel {
         g.setColor(savedCol);
     }
 
+    /**
+     * Update and repaint simulator
+     */
     public void update() {
         area.update();
         repaint();

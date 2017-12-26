@@ -8,11 +8,14 @@ public class CSArea {
     public static final int WIDTH = 800;
     public static final int HEIGHT = 400;
     public static final int MAX_BACTERIA = 10;
-    public static final int MIN_NUTRIENT = 10;
-    public static final int MAX_NUTRIENT = 90;
+    public static final float MIN_NUTRIENT = 10;
+    public static final float MAX_NUTRIENT = 90;
 
     private List<Bacterium> bacteria;
 
+    /**
+     * Construct new CSArea with empty list of Bacteria
+     */
     public CSArea() {
         this.bacteria = new ArrayList<Bacterium>();
         setup();
@@ -37,6 +40,9 @@ public class CSArea {
         }
     }
 
+    /**
+     * Clears all bacteria from CSArea
+     */
     public void setup() {
         this.bacteria.clear();
     }
@@ -54,10 +60,17 @@ public class CSArea {
         }
     }
 
+    /**
+     * Returns list of all bacteria in CSArea
+     * @return    list of all bacteria
+     */
     public List<Bacterium> getBacteria() {
         return this.bacteria;
     }
 
+    /**
+     * Move all bacteria in CSArea
+     */
     public void moveBacteria() {
         for (Bacterium b : this.bacteria) {
             b.move();
@@ -65,12 +78,12 @@ public class CSArea {
     }
 
     /**
-     * Get nutrient conc at given x-pos
+     * Get nutrient concentration at given x-pos
      * @param x   given x-pos
      * @return    nutrient conc at x-pos based on width and min/max nutrient concentrations
      */
-    public static int getNutrientAtWidth(int x) {
-        return ((x * ((MAX_NUTRIENT - MIN_NUTRIENT) / WIDTH)) + MIN_NUTRIENT);
+    public static int getNutrientAtWidth(float x) {
+        return Math.round((x * ((MAX_NUTRIENT - MIN_NUTRIENT) / WIDTH)) + MIN_NUTRIENT);
     }
 
 }

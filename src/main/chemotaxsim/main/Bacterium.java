@@ -9,7 +9,7 @@ public class Bacterium {
     public static final int BACTERIUM_LENGTH = 10;
     public static final int ROTATION = 10;
     public static final int MAX_DX = 5;
-    public static final int MAX_RUN_TIME = 100;
+    public static final int MAX_RUN_TIME = 500;
     public static final int MIN_RUN_TIME = 5;
     public static final int MIN_TUMBLE_TIME = 5;
     public static final int MAX_TUMBLE_TIME = 20;
@@ -22,8 +22,7 @@ public class Bacterium {
     private boolean isTumbling;
 
     /**
-     * Construct a new bacterium at given position that is tumbling,
-     * is facing right, and has a previous nutrient value of 50.
+     * Construct a new bacterium at given position that is tumbling and facing right.
      */
     public Bacterium(int x, int y) {
         setPosition(x, y);
@@ -33,21 +32,31 @@ public class Bacterium {
         this.timeUntilSwitch = MIN_TUMBLE_TIME;
     }
 
+    /**
+     * Gets previous nutrient value
+     * @return previous nutrient value
+     */
     public int getPreviousNutrient() {
         return this.previousNutrient;
     }
 
+    /**
+     * Sets bacterium to tumble
+     */
     public void tumble() {
         this.isTumbling = true;
     }
 
+    /**
+     * Sets bacterium to run
+     */
     public void run() {
         this.isTumbling = false;
     }
 
     /**
      * If bacteria is running, move bacterium in a straight line at degree of rotation
-     * If bacteria is tumbling, rotate bacterium ROTATION degrees
+     * If bacteria is tumbling, rotate bacterium ROTATION degrees counterclockwise
      */
     public void move() {
         this.timeUntilSwitch -= 1;
@@ -57,32 +66,33 @@ public class Bacterium {
 
         if (this.isTumbling) {
             this.degreeOfRotation += ROTATION;
-        }
-        if (this.degreeOfRotation >= 360) {
-            this.degreeOfRotation -= 360;
-        }
-
-        if (!this.isTumbling) {
-            this.x += (int) (MAX_DX * Math.sin(degreesToRadians(this.degreeOfRotation)));
-            this.y += (int) (MAX_DX * Math.cos(degreesToRadians(this.degreeOfRotation)));
+            if (this.degreeOfRotation >= 360) {
+                this.degreeOfRotation -= 360;
+            }
+        } else if (!this.isTumbling) {
+            this.x += (int) (MAX_DX * Math.sin(Math.toRadians(this.degreeOfRotation)));
+            this.y += (int) (MAX_DX * Math.cos(Math.toRadians(this.degreeOfRotation)));
         }
 
         handleBoundary();
+
+        System.out.println("Bacteria moved. x: " + this.getX() + ", y: " + this.getY() + ". Time until switch: "
+         + this.timeUntilSwitch + ". Degree of rotation: " + this.getDegreeOfRotation());
     }
 
     /**
-     * private helper method to convert degrees to radians
-     * @param degree    degree to be converted
+     * Sets position of bacterium to given position
+     * @param x   x-coord to be set
+     * @param y   y-coord to be set
      */
-    private double degreesToRadians(int degree) {
-        return degree / (2 * Math.PI);
-    }
-
     public void setPosition(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
+    /**
+     * If bacterium reaches boundary, keep bacterium at that boundary
+     */
     public void handleBoundary() {
         if (x < 0) {
             x = 0;
@@ -125,11 +135,9 @@ public class Bacterium {
             }
 
             this.previousNutrient = measureNutrient();
-        }
-
-        if (!this.isTumbling) {
-            this.timeUntilSwitch = ThreadLocalRandom.current().nextInt(MIN_TUMBLE_TIME, MAX_TUMBLE_TIME + 1);
+        } else if (!this.isTumbling) {
             this.tumble();
+            this.timeUntilSwitch = ThreadLocalRandom.current().nextInt(MIN_TUMBLE_TIME, MAX_TUMBLE_TIME + 1);
         }
     }
 
@@ -141,14 +149,26 @@ public class Bacterium {
         return CSArea.getNutrientAtWidth(this.x);
     }
 
+    /**
+     * Get current x-pos of bacterium
+     * @return  current x-pos of bacterium
+     */
     public int getX() {
         return this.x;
     }
 
+    /**
+     * Get current y-pos of bacterium
+     * @return  current y-pos of bacterium
+     */
     public int getY() {
         return this.y;
     }
 
+    /**
+     * Get current degree of rotation of bacterium
+     * @return  current degree of rotation of bacterium
+     */
     public int getDegreeOfRotation() {
         return this.degreeOfRotation;
     }
