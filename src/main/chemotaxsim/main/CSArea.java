@@ -30,10 +30,11 @@ public class CSArea {
      * @param keyCode   the key pressed
      */
     public void keyPressed(int keyCode) {
-        if (keyCode == KeyEvent.VK_R)
+        if (keyCode == KeyEvent.VK_R) {
             setup();
-        else if (keyCode == KeyEvent.VK_X)
+        } else if (keyCode == KeyEvent.VK_X) {
             System.exit(0);
+        }
     }
 
     public void setup() {
@@ -48,8 +49,9 @@ public class CSArea {
      * @param y     y-coord
      */
     public void addBacterium(int x, int y) {
-        if (this.bacteria.size() <= MAX_BACTERIA)
+        if (this.bacteria.size() <= MAX_BACTERIA) {
             this.bacteria.add(new Bacterium(x, y));
+        }
     }
 
     public List<Bacterium> getBacteria() {
@@ -57,8 +59,9 @@ public class CSArea {
     }
 
     public void moveBacteria() {
-        for (Bacterium b : this.bacteria)
+        for (Bacterium b : this.bacteria) {
             b.move();
+        }
     }
 
     /**

@@ -51,13 +51,16 @@ public class Bacterium {
      */
     public void move() {
         this.timeUntilSwitch -= 1;
-        if (this.timeUntilSwitch <= 0)
+        if (this.timeUntilSwitch <= 0) {
             handleSwitch();
+        }
 
-        if (this.isTumbling)
+        if (this.isTumbling) {
             this.degreeOfRotation += ROTATION;
-        if (this.degreeOfRotation >= 360)
+        }
+        if (this.degreeOfRotation >= 360) {
             this.degreeOfRotation -= 360;
+        }
 
         if (!this.isTumbling) {
             this.x += (int) (MAX_DX * Math.sin(degreesToRadians(this.degreeOfRotation)));
@@ -81,15 +84,17 @@ public class Bacterium {
     }
 
     public void handleBoundary() {
-        if (x < 0)
+        if (x < 0) {
             x = 0;
-        else if (x > CSArea.WIDTH)
+        } else if (x > CSArea.WIDTH) {
             x = CSArea.WIDTH;
+        }
 
-        if (y < 0)
+        if (y < 0) {
             y = 0;
-        else if (y > CSArea.HEIGHT)
+        } else if (y > CSArea.HEIGHT) {
             y = CSArea.HEIGHT;
+        }
     }
 
     /**
@@ -113,10 +118,11 @@ public class Bacterium {
                 this.timeUntilSwitch = measureNutrient();
             }
 
-            if (this.timeUntilSwitch > MAX_RUN_TIME)
+            if (this.timeUntilSwitch > MAX_RUN_TIME) {
                 this.timeUntilSwitch = MAX_RUN_TIME;
-            else if (this.timeUntilSwitch < MIN_RUN_TIME)
+            } else if (this.timeUntilSwitch < MIN_RUN_TIME) {
                 this.timeUntilSwitch = MIN_RUN_TIME;
+            }
 
             this.previousNutrient = measureNutrient();
         }
