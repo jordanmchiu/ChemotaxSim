@@ -9,7 +9,6 @@ import java.awt.event.*;
 import java.awt.geom.AffineTransform;
 
 public class SimPanel extends JPanel {
-    private static final String RESTART = "R to restart";
     private static final int INTERVAL = 20;
 
     private CSArea area;

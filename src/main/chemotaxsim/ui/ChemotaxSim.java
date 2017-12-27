@@ -10,7 +10,9 @@ public class ChemotaxSim extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setUndecorated(true);
         SimPanel sp = new SimPanel();
+        InfoPanel ip = new InfoPanel();
         add(sp);
+        add(ip);
         pack();
         centreOnScreen();
         setVisible(true);

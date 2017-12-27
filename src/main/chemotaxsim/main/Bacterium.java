@@ -12,7 +12,7 @@ public class Bacterium {
     public static final int MAX_RUN_TIME = 500;
     public static final int MIN_RUN_TIME = 5;
     public static final int MIN_TUMBLE_TIME = 5;
-    public static final int MAX_TUMBLE_TIME = 20;
+    public static final int MAX_TUMBLE_TIME = 50;
 
     private int previousNutrient;
     private int x;
@@ -55,11 +55,12 @@ public class Bacterium {
     }
 
     /**
-     * If bacteria is running, move bacterium in a straight line at degree of rotation
-     * If bacteria is tumbling, rotate bacterium ROTATION degrees counterclockwise
+     * If bacterium is tumbling, rotate bacterium ROTATION degrees counterclockwise
+     * If bacterium is running, move bacterium in a straight line at degree of rotation
+     *    - If bacterium is moving away from nutrients, decrease time until next tumble more quickly
+     *    - If bacterium is moving towards nutrients, decrease time until next tumble more slowly
      */
     public void move() {
-        this.timeUntilSwitch -= 1;
         if (this.timeUntilSwitch <= 0) {
             handleSwitch();
         }
@@ -69,9 +70,16 @@ public class Bacterium {
             if (this.degreeOfRotation >= 360) {
                 this.degreeOfRotation -= 360;
             }
+            this.timeUntilSwitch -= 2;
         } else if (!this.isTumbling) {
             this.x += (int) (MAX_DX * Math.sin(Math.toRadians(this.degreeOfRotation)));
             this.y += (int) (MAX_DX * Math.cos(Math.toRadians(this.degreeOfRotation)));
+
+            if (measureNutrient() < getPreviousNutrient()) {
+                this.timeUntilSwitch -= 3;
+            } else if (measureNutrient() >= getPreviousNutrient()) {
+                this.timeUntilSwitch -= 1;
+            }
         }
 
         handleBoundary();
@@ -96,14 +104,14 @@ public class Bacterium {
     public void handleBoundary() {
         if (x < 0) {
             x = 0;
-        } else if (x > CSArea.WIDTH) {
-            x = CSArea.WIDTH;
+        } else if (x > CSArea.WIDTH - 10) {
+            x = CSArea.WIDTH - 10;
         }
 
         if (y < 0) {
             y = 0;
-        } else if (y > CSArea.HEIGHT) {
-            y = CSArea.HEIGHT;
+        } else if (y > CSArea.HEIGHT - 10) {
+            y = CSArea.HEIGHT - 10;
         }
     }
 
