@@ -13,6 +13,9 @@ public class InfoPanel extends JPanel {
     private JLabel restartLbl;
     private JLabel clickLbl;
 
+    /**
+     * Construct info panel with basic instructions for user
+     */
     public InfoPanel() {
         setBackground(new Color(180, 180, 180));
         restartLbl = new JLabel(RESTART_TXT);
