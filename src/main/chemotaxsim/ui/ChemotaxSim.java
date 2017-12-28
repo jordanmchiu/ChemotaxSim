@@ -12,7 +12,7 @@ public class ChemotaxSim extends JFrame {
         SimPanel sp = new SimPanel();
         InfoPanel ip = new InfoPanel();
         add(sp);
-        add(ip);
+        //add(ip);
         pack();
         centreOnScreen();
         setVisible(true);

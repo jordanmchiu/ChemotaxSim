@@ -83,9 +83,6 @@ public class Bacterium {
         }
 
         handleBoundary();
-
-        System.out.println("Bacteria moved. x: " + this.getX() + ", y: " + this.getY() + ". Time until switch: "
-         + this.timeUntilSwitch + ". Degree of rotation: " + this.getDegreeOfRotation());
     }
 
     /**
