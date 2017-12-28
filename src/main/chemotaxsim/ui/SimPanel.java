@@ -10,7 +10,7 @@ import java.awt.geom.AffineTransform;
 
 public class SimPanel extends JPanel {
     private static final int INTERVAL = 20;
-
+    private InfoPanel ip;
     private CSArea area;
 
     /**
@@ -18,7 +18,6 @@ public class SimPanel extends JPanel {
      */
     public SimPanel() {
         setPreferredSize(new Dimension(CSArea.WIDTH, CSArea.HEIGHT));
-        setBackground(Color.WHITE); // change this to a gradient if possible
         this.area = new CSArea();
         addTimer();
         setFocusable(true);
