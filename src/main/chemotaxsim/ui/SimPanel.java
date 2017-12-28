@@ -10,7 +10,6 @@ import java.awt.geom.AffineTransform;
 
 public class SimPanel extends JPanel {
     private static final int INTERVAL = 20;
-    private InfoPanel ip;
     private CSArea area;
 
     /**
@@ -75,6 +74,7 @@ public class SimPanel extends JPanel {
         GradientPaint gp = new GradientPaint(0, 0, color1, w, 0, color2);
         g2d.setPaint(gp);
         g2d.fillRect(0, 0, w, h);
+
         drawSim(g);
     }
 

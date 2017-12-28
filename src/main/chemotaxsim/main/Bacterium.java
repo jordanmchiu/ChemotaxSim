@@ -23,6 +23,8 @@ public class Bacterium {
 
     /**
      * Construct a new bacterium at given position that is tumbling and facing right.
+     * @param x     x-pos to place bacterium
+     * @param y     y-pos to place bacterium
      */
     public Bacterium(int x, int y) {
         setPosition(x, y);
