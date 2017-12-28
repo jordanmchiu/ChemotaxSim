@@ -31,7 +31,7 @@ public class Bacterium {
         this.isTumbling = true;
         this.degreeOfRotation = 0;
         this.previousNutrient = CSArea.getNutrientAtWidth(this.x);
-        this.timeUntilSwitch = MIN_TUMBLE_TIME;
+        this.timeUntilSwitch = ThreadLocalRandom.current().nextInt(MIN_TUMBLE_TIME, MAX_TUMBLE_TIME + 1);
     }
 
     /**

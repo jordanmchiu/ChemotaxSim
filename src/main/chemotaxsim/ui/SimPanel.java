@@ -6,7 +6,6 @@ import main.chemotaxsim.main.CSArea;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.geom.AffineTransform;
 
 public class SimPanel extends JPanel {
     private static final int INTERVAL = 20;
@@ -106,10 +105,14 @@ public class SimPanel extends JPanel {
         g.setColor(Bacterium.BACTERIUM_COLOR);
         g.fillOval(b.getX(), b.getY(), Bacterium.BACTERIUM_WIDTH, Bacterium.BACTERIUM_LENGTH);
 
+        // TODO: Figure out how to rotate bacteria
+        /*
         Graphics2D g2d = (Graphics2D)g;
         AffineTransform old = g2d.getTransform();
-        g2d.rotate(Math.toRadians(b.getDegreeOfRotation()));
-        g2d.setTransform(old);
+        double rads = Math.toRadians(b.getDegreeOfRotation());
+        g2d.rotate(rads, b.getX(), b.getY());
+        g2d.setTransform(old); // removing this causes all bacteria to rotate around the first bacterium spawned.
+        */
 
         g.setColor(savedCol);
     }
