@@ -101,20 +101,12 @@ public class SimPanel extends JPanel {
      * @param b    Bacterium to be drawn
      */
     private void drawBacterium(Graphics g, Bacterium b) {
-        Color savedCol = g.getColor();
-        g.setColor(Bacterium.BACTERIUM_COLOR);
-        g.fillOval(b.getX(), b.getY(), Bacterium.BACTERIUM_WIDTH, Bacterium.BACTERIUM_LENGTH);
-
-        // TODO: Figure out how to rotate bacteria
-        /*
-        Graphics2D g2d = (Graphics2D)g;
-        AffineTransform old = g2d.getTransform();
-        double rads = Math.toRadians(b.getDegreeOfRotation());
-        g2d.rotate(rads, b.getX(), b.getY());
-        g2d.setTransform(old); // removing this causes all bacteria to rotate around the first bacterium spawned.
-        */
-
-        g.setColor(savedCol);
+        Graphics2D g2d = (Graphics2D) g.create();
+        int ctrX = (Bacterium.BACTERIUM_WIDTH / 2 + b.getX());
+        int ctrY = (Bacterium.BACTERIUM_HEIGHT / 2 + b.getY());
+        g2d.rotate(Math.toRadians(b.getDegreeOfRotation()), ctrX, ctrY);
+        g2d.setColor(Bacterium.BACTERIUM_COLOR);
+        g2d.fillOval(b.getX(), b.getY(), Bacterium.BACTERIUM_WIDTH, Bacterium.BACTERIUM_HEIGHT);
     }
 
     /**

@@ -5,9 +5,9 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Bacterium {
     public static final Color BACTERIUM_COLOR = new Color(0, 0, 0);
-    public static final int BACTERIUM_WIDTH = 20;
-    public static final int BACTERIUM_LENGTH = 10;
-    public static final int ROTATION = 10;
+    public static final int BACTERIUM_WIDTH = 10;
+    public static final int BACTERIUM_HEIGHT = 20;
+    public static final int ROTATION = 30;
     public static final int MAX_DX = 5;
     public static final int MAX_RUN_TIME = 500;
     public static final int MIN_RUN_TIME = 5;
