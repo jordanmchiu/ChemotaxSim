@@ -1,4 +1,4 @@
-![ChemotaxSim-Title](ChemotaxSim/images/TextTitle.JPG)
+![ChemotaxSim-Title](https://github.com/jordanmchiu/ChemotaxSim/blob/master/images/TextTitle.JPG)
 
 **ChemotaxSim** is a basic simulator for bacterial chemotaxis through an attractant gradient (ex. nutrients).  It is designed as
 an introductory demo or teaching tool for those new to the concept of chemotaxis.
@@ -16,7 +16,10 @@ immune defenses in humans.
 
 ## Screenshots
 
+![Screenshot-1](https://github.com/jordanmchiu/ChemotaxSim/blob/master/images/Screenshot_1.PNG)
 
+Red represents a repellent and green represents an attractant.  Over time, by random running and tumbling, bacteria move from left
+to right towards the attractant, and away from the repellent.
 
 ## Sources
 
