@@ -1,4 +1,4 @@
-[[ChemotaxSim/images/TextTitle.JPG]]
+![ChemotaxSim-Title](ChemotaxSim/images/TextTitle.JPG)
 
 **ChemotaxSim** is a basic simulator for bacterial chemotaxis through an attractant gradient (ex. nutrients).  It is designed as
 an introductory demo or teaching tool for those new to the concept of chemotaxis.
