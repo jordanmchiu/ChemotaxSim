@@ -23,4 +23,5 @@ immune defenses in humans.
    *Current Opinion in Cell Biology*, 24(2), 262-268. doi:10.1016/j.ceb.2011.11.008
 2. Webre, D. J., Wolanin, P. M., & Stock, J. B. (2003). Bacterial chemotaxis.
    *Current Biology*, 13(2), R47-R49. doi:10.1016/S0960-9822(02)01424-0
-3. Thompson, C. (2017). 
+3. Thompson, C. (2017). Bacterial chemotaxis. University of British Columbia, Vancouver, BC,
+   18 Oct 2017. (Lecture presentation, MICB 408: Advanced Bacterial Pathogenesis)
