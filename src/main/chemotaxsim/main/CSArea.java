@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CSArea {
-    public static final int WIDTH = 1600;
-    public static final int HEIGHT = 900;
+    public static final int WIDTH = 1200;
+    public static final int HEIGHT = 800;
     public static final int MAX_BACTERIA = 10;
     public static final float MIN_NUTRIENT = 10;
     public static final float MAX_NUTRIENT = 90;
