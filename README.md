@@ -9,10 +9,11 @@ narrow to be able to detect any kind of concentration gradient.  So instead, bac
            concentration as it runs.  If the cell is moving towards an increased level of attractant (or decreased repellent),
            the switch to tumbling is repressed.  Conversely, if the cell moves towards decreased attractants (or increased repellent),
            the probability of tumbling is enhanced.  Runs can be as short as a fraction of a second to as long as over one minute.
-* **Tumble**: The cell rotates for a random amount of time to face another direction.  This normally takes only a fraction of a second.
+* **Tumble**: The cell rotates for a random amount of time to face another direction before tumbling again.  This normally takes only a 
+              fraction of a second.
 
-Using this strategy, bacteria are able to sense nutrients in an environment, move away from toxins and antibiotics, and evade
-immune defenses in humans.
+Using alternating between runs and tumbles, bacteria are able to sense nutrients in an environment, move away from toxins and antibiotics, 
+and evade immune defenses in humans.
 
 ## Screenshots
 
